@@ -5,3 +5,7 @@
  * File: home_controller.class.php
  * Description:
  */
+
+class HomeController {
+
+}
