@@ -34,7 +34,7 @@ class StoreView extends IndexView {
                     }
 
                     echo "<div class='item'><p><a href='#'><img src='" . $image .
-                        "'></a><span>$title<br>Rated $rating<br>" . $release_date->format('m-d-Y') . "</span></p></div>";
+                        "'></a><span>$brand<br>Color $color<br>" . $product_size. "<br> $" . $price . "<br>". $product_cat .  "</span></p></div>";
 
                 }
             }
