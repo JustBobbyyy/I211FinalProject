@@ -26,7 +26,7 @@ class Database
         'tblProducts' => 'products',
         'tblRoles' => 'roles',
         'tblUsers' => 'users',
-        'tblUserProducts' => 'userProducts'
+        'tblUserProducts' => 'userProduct'
     );
     //define the database connection object
     private $objDBConnection = NULL;
