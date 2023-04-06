@@ -1,0 +1,17 @@
+Index: index.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\n/**\n * Author: Bobby Ezenwelu\n * Date: 4/5/23\n * File: index.php\n * Description:\n */\n\n\necho \"hello\";
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/index.php b/index.php
+--- a/index.php	(revision 307c744697dedd28d354d2f4b2468aab4bd1def3)
++++ b/index.php	(date 1680740576118)
+@@ -7,4 +7,4 @@
+  */
+ 
+ 
+-echo "hello";
+\ No newline at end of file
++echo "hello";

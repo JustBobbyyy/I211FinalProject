@@ -6,14 +6,21 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'ComposerAutoloaderInitd0b36878b43c0daeaaef54582511539b' => $vendorDir . '/composer/autoload_real.php',
+    'ComposerAutoloaderInitf2249f822795f8322dc252cb5d7f79bd' => $vendorDir . '/composer/autoload_real.php',
     'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',
-    'Composer\\Autoload\\ComposerStaticInitd0b36878b43c0daeaaef54582511539b' => $vendorDir . '/composer/autoload_static.php',
+    'Composer\\Autoload\\ComposerStaticInitf2249f822795f8322dc252cb5d7f79bd' => $vendorDir . '/composer/autoload_static.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'DataMissingException' => $baseDir . '/exceptions/data_missing_exception.class.php',
     'Database' => $baseDir . '/application/database.class.php',
+    'DatabaseConnectionException' => $baseDir . '/exceptions/database_connection_exception.class.php',
+    'DatabaseExecutionException' => $baseDir . '/exceptions/database_execution_exception.class.php',
     'Dispatcher' => $baseDir . '/application/dispatcher.class.php',
-    'IndexView' => $baseDir . '/views/store/index/store_index.class.php',
+    'HomeController' => $baseDir . '/controllers/home_controller.class.php',
+    'HomeIndex' => $baseDir . '/views/home/home_index.class.php',
+    'IndexView' => $baseDir . '/views/index_view.class.php',
+    'InvalidDateException' => $baseDir . '/exceptions/invalid_date_exception.class.php',
     'Store' => $baseDir . '/models/store.class.php',
+    'StoreController' => $baseDir . '/controllers/store_controller.class.php',
     'StoreModel' => $baseDir . '/models/store_model.class.php',
-    'WelcomeIndex' => $baseDir . '/views/home/home_index.class.php',
+    'StoreView' => $baseDir . '/views/store/store_index.class.php',
 );

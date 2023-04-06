@@ -1,11 +1,11 @@
 <?php
+
 /**
- * Author: Fernando Luna
- * Date: 4/5/2023
+ * Author: Bobby Ezenwelu
+ * Date: 4/6/23
  * File: index_view.class.php
  * Description:
  */
-
 class IndexView {
 
     //this method displays the page header

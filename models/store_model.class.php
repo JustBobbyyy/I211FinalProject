@@ -26,6 +26,11 @@ class StoreModel {
         foreach ($_POST as $key => $value) {
             $_POST[$key] = $this->dbConnection->real_escape_string($value);
         }
+        
+        foreach($_GET as $key => $value){
+            $_GET[$key] = $this->dbConnection->real_escape_string($value);
+            
+        }
 
         //initialize product prices
         if (!isset($_SESSION['store_prices'])) {
@@ -53,7 +58,7 @@ class StoreModel {
          */
 
         $sql = "SELECT * FROM " . $this->tblProducts . "," . $this->tblProducts_Category .
-            " WHERE " . $this->tblProducts . ".prices=" . $this->tblProducts_Category . ".prices";
+            " WHERE " . $this->tblProducts . ".product_cat=" . $this->tblProducts_Category . ".id";
 
         try {
 
@@ -77,10 +82,10 @@ class StoreModel {
 
             //loop through all rows in the returned recordsets
             while ($obj = $query->fetch_object()) {
-                $products = new Movie(stripslashes($obj->product_size), stripslashes($obj->color), stripslashes($obj->brand), stripslashes($obj->product_category), stripslashes($obj->price), stripslashes($obj->image));
+                $products = new Store(stripslashes($obj->product_size), stripslashes($obj->color), stripslashes($obj->brand), stripslashes($obj->category), stripslashes($obj->price), stripslashes($obj->image));
 
                 //set the id for the store
-                $products->setId($obj->product_id);
+                $products->setProduct_ID($obj->product_id);
 
                 //add the store into the array
                 $products[] = $products;
@@ -98,9 +103,9 @@ class StoreModel {
     public function view_products($product_id)
     {
         //the select ssql statement
-        $sql = "SELECT * FROM " . $this->tblMovie . "," . $this->tblMovieRating .
+        $sql = "SELECT * FROM " . $this->tblProducts . "," . $this->tblProducts_Category .
             " WHERE " . $this->tblMovie . ".rating=" . $this->tblMovieRating . ".rating_id" .
-            " AND " . $this->tblMovie . ".id='$id'";
+            " AND " . $this->tblMovie . ".id='$product_id'";
 
         try {
 
@@ -116,22 +121,96 @@ class StoreModel {
                 $obj = $query->fetch_object();
 
                 //create a movie object
-                $movie = new Movie(stripslashes($obj->title), stripslashes($obj->rating), stripslashes($obj->release_date), stripslashes($obj->director), stripslashes($obj->image), stripslashes($obj->description));
+                $products = new Movie(stripslashes($obj->product_size), stripslashes($obj->color), stripslashes($obj->brand), stripslashes($obj->product_category), stripslashes($obj->price), stripslashes($obj->image));
 
                 //set the id for the movie
-                $movie->setId($obj->product_id);
+                $products->setId($obj->product_id);
 
-                return $movie;
+                return $products;
             }
 
             return false;
         } catch (DatabaseExecutionException $e) {
-            $view = new MovieError();
+            $view = new StoreError();
             $view->display($e->getMessage());
         } catch (Exception $e) {
             $view = new MovieError();
             $view->display($e->getMessage());
         }
+    }
+
+    //search the database for movies that match words in titles. Return an array of movies if succeed; false otherwise.
+    public function search_movie($terms)
+    {
+        $terms = explode(" ", $terms); //explode multiple terms into an array
+        //select statement for AND serach
+        $sql = "SELECT * FROM " . $this->tblProducts_Category . "," . $this->tblProducts_Category .
+            " WHERE " . $this->tblProducts . ".rating=" . $this->tblProducts_Category . ".rating_id AND (1";
+
+        foreach ($terms as $term) {
+            $sql .= " AND title LIKE '%" . $term . "%'";
+        }
+
+        $sql .= ")";
+
+        try {
+
+
+            //execute the query
+            $query = $this->dbConnection->query($sql);
+
+            // the search failed, return false.
+            if (!$query)
+                throw new DatabaseExecutionException(
+                    "Error encountered when executing the SQL statement.");
+
+
+            //search succeeded, but no movie was found.
+            if ($query->num_rows == 0)
+                return 0;
+
+            //search succeeded, and found at least 1 movie found.
+            //create an array to store all the returned movies
+            $movies = array();
+
+            //loop through all rows in the returned recordsets
+            while ($obj = $query->fetch_object()) {
+                $products = new Movie(stripslashes($obj->product_size), stripslashes($obj->color), stripslashes($obj->brand), stripslashes($obj->product_category), stripslashes($obj->price), stripslashes($obj->image));
+
+                //set the id for the movie
+                $products->setId($obj->id);
+
+                //add the movie into the array
+                $products[] = $products;
+            }
+            return $products;
+        } catch (DatabaseExecutionException $e) {
+            $view = new StoreError();
+            $view->display($e->getMessage());
+        } catch (Exception $e) {
+            $view = new StoreError();
+            $view->display($e->getMessage());
+        }
+    }
+
+    //get all movie ratings
+    private function get_movie_category()
+    {
+        $sql = "SELECT * FROM " . $this->tblProducts_Category;
+
+        //execute the query
+        $query = $this->dbConnection->query($sql);
+
+        if (!$query) {
+            return false;
+        }
+
+        //loop through all rows
+        $price = array();
+        while ($obj = $query->fetch_object()) {
+            $ratings[$obj->rating] = $obj->rating_id;
+        }
+        return $price;
     }
  }
 

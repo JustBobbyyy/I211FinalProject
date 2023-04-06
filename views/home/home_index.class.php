@@ -5,7 +5,7 @@
  * File: home_index.class.php
  * Description:
  */
-class WelcomeIndex extends IndexView {
+class HomeIndex extends IndexView {
 
     public function display() {
         //display page header
