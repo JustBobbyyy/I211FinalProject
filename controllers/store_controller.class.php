@@ -15,7 +15,7 @@ class StoreController{
     
     public function index(){
         $products = $this->store_model->list_products();
-        $view = new IndexView(); // change to storeIndex when you have a chance
+        $view = new StoreView(); // change to storeIndex when you have a chance
         $view->display($products);
     }
 

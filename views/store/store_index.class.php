@@ -8,9 +8,44 @@
  */
 class StoreView extends IndexView {
 
-    public function display($products){
+    public function display($products) {
+        //display page header
+        parent::displayHeader("List All Products");
 
-    }
+        ?>
+        <div id="main-header"> Products in the Store</div>
+
+        <div class="grid-container">
+            <?php
+            if ($products == 0) {
+                echo "No product was found.<br><br><br><br><br>";
+            } else {
+                //display movies in a grid; six movies per row
+                foreach ($products as $product) {
+                    $id = $product->getProductId();
+                    $product_size = $product->getProduct_size();
+                    $color = $product->getColor();
+                    $brand = $product->getBrand();
+                    $product_cat = $product->getProduct_category();
+                    $price = $product->getPrice();
+                    $image = $product->getImage();
+                    if (strpos($image, "http://") === false AND strpos($image, "https://") === false) {
+                        $image = BASE_URL . "/" . $image;
+                    }
+
+                    echo "<div class='item'><p><a href='#'><img src='" . $image .
+                        "'></a><span>$title<br>Rated $rating<br>" . $release_date->format('m-d-Y') . "</span></p></div>";
+
+                }
+            }
+            ?>
+        </div>
+
+        <?php
+        //display page footer
+        parent::displayFooter();
+
+    } //end of display method
 }
 
 ?>

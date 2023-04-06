@@ -12,7 +12,7 @@ class StoreModel {
     private $dbConnection;
     static private $_instance = NULL;
     private $tblProducts;
-    private $tblProducts_Category;
+    private $tblProductsCategory;
 
     //To use singleton pattern, this constructor is made private. To get an instance of the class, the getStoreModel method must be called.
     private function __construct()
@@ -20,7 +20,7 @@ class StoreModel {
         $this->db = Database::getDatabase();
         $this->dbConnection = $this->db->getConnection();
         $this->tblProducts = $this->db->getProductsTable();
-        $this->tblProducts_Category = $this->db->getProducts_CategoryTable();
+        $this->tblProductsCategory = $this->db->getProductsCategory();
 
         //Escapes special characters in a string for use in an SQL statement. This stops SQL inject in POST vars.
         foreach ($_POST as $key => $value) {
@@ -32,11 +32,7 @@ class StoreModel {
             
         }
 
-        //initialize product prices
-        if (!isset($_SESSION['store_prices'])) {
-            $prices = $this->get_store_prices();
-            $_SESSION['store_prices'] = $prices;
-        }
+
 }
 
 //static method to ensure there is just one StoreModel instance
@@ -57,8 +53,10 @@ class StoreModel {
          * WHERE ...
          */
 
-        $sql = "SELECT * FROM " . $this->tblProducts . "," . $this->tblProducts_Category .
-            " WHERE " . $this->tblProducts . ".product_cat=" . $this->tblProducts_Category . ".id";
+        $sql = "SELECT * FROM " . $this->tblProducts . "," . $this->tblProductsCategory .
+            " WHERE " . $this->tblProducts . ".product_cat=" . $this->tblProductsCategory . ".id";
+
+
 
         try {
 
@@ -72,31 +70,31 @@ class StoreModel {
                     "Error encountered when executing the SQL statement.");
 
 
-            //if the query succeeded, but no movie was found.
+            //if the query succeeded, but no product was found.
             if ($query->num_rows == 0)
                 return 0;
 
             //handle the result
-            //create an array to store all returned movies
+            //create an array to store all returned product
             $products = array();
 
             //loop through all rows in the returned recordsets
             while ($obj = $query->fetch_object()) {
-                $products = new Store(stripslashes($obj->product_size), stripslashes($obj->color), stripslashes($obj->brand), stripslashes($obj->category), stripslashes($obj->price), stripslashes($obj->image));
+                $product = new Store(stripslashes($obj->product_size), stripslashes($obj->color), stripslashes($obj->brand), stripslashes($obj->category), stripslashes($obj->price), stripslashes($obj->image));
 
-                //set the id for the store
-                $products->setProduct_ID($obj->product_id);
+                //set the id for the product
+                $product->setProduct_ID($obj->product_id);
 
                 //add the store into the array
-                $products[] = $products;
+                $products[] = $product;
             }
             return $products;
         } catch (DatabaseExecutionException $e) {
-            $view = new StoreError();
-            $view->display($e->getMessage());
+           // $view = new StoreError();
+            //$view->display($e->getMessage());
         } catch (Exception $e) {
-            $view = new StoreError();
-            $view->display($e->getMessage());
+            //$view = new StoreError();
+            //$view->display($e->getMessage());
         }
     }
 

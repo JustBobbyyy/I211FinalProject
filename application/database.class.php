@@ -22,7 +22,7 @@ class Database
         'login' => 'phpuser',
         'password' => 'phpuser',
         'database' => 'finalproject_db',
-        'tblProductsCategories' => 'products_categorie',
+        'tblProductsCategory' => 'products_category',
         'tblProducts' => 'products',
         'tblRoles' => 'roles',
         'tblUsers' => 'users',
@@ -63,8 +63,13 @@ class Database
     }
 
     // get the storeModel 
-    public function getStoreTable(){
+    public function getProductsTable(){
         return $this->param['tblProducts'];
         
+    }
+
+    public function getProductsCategory(){
+        return $this->param['tblProductsCategory'];
+
     }
 }
