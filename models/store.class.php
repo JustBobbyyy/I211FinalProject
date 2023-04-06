@@ -3,7 +3,7 @@
  * Author: Bobby Ezenwelu
  * Date: 4/6/23
  * File: store.class.php
- * Description:
+ * Description: the store class models a real-world online store.
  */
 
 class Store
