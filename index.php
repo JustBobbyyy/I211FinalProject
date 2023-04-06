@@ -6,8 +6,11 @@
  * Description:
  */
 
+//load application settings
+require_once ("application/config.php");
 
-echo "hello";
+//load autoloader
+require_once ("vendor/autoload.php");
 
-//luna test
-echo "hello world";
+//load the dispatcher that dissects a request URL
+new Dispatcher();
