@@ -1,17 +1,16 @@
 <?php
-/*
- * Author: Louie Zhu
- * Date: 3/28/2022
- * Name: index.class.php
- * Description: This class defines the method "display" that displays the home page.
+/**
+ * Author: Fernando Luna
+ * Date: 4/6/2023
+ * File: home_index.class.php
+ * Description:
  */
-
 class WelcomeIndex extends IndexView {
 
     public function display() {
         //display page header
         parent::displayHeader("Kung Fu Panda Media Library Home");
-        ?>    
+        ?>
         <div id="main-header">Welcome to KUNG FU PANDA Media Library!</div>
         <p>This application is designed to demonstrate the popular software design pattern named MVC. The application hosts four different media types: movie, book, music cd, and game. The movie library is complete. The partially completed book, cd, and game libraries are to show how easy it is to host additional media objects. The application is meant to be flexible and extensible.</p>
         <br>
