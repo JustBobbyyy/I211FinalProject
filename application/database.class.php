@@ -22,7 +22,11 @@ class Database
         'login' => 'root',
         'password' => '',
         'database' => 'finalproject_db',
-        'tblUser' => 'users'
+        'tblProductsCategories' => 'products_categorie',
+        'tblProducts' => 'products',
+        'tblRoles' => 'roles',
+        'tblUsers' => 'users',
+        'tblUserProducts' => 'userProduct'
     );
     //define the database connection object
     private $objDBConnection = NULL;
@@ -58,9 +62,4 @@ class Database
         return $this->objDBConnection;
     }
 
-    //returns the name of the table storing books
-    public function getUserTable()
-    {
-        return $this->param['tblUser'];
-    }
 }

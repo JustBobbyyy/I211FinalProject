@@ -23,7 +23,7 @@ class Store
     }
 
     //get the product id
-    public function getProduct_ID() {
+    public function getProductId() {
         return $this->product_id;
     }
 
