@@ -6,44 +6,53 @@
  * Description:
  */
 
-class MovieIndex extends MovieIndexView {
-    /*
-     * the display method accepts an array of movie objects and displays
-     * them in a grid.
-     */
+class IndexView {
 
-    public function display($movies) {
-        //display page header
-        parent::displayHeader("List All Movies");
+    //this method displays the page header
+    static public function displayHeader($page_title) {
         ?>
-        <div id="main-header"> Movies in the Library</div>
-
-        <div class="grid-container">
-            <?php
-            if ($movies === 0) {
-                echo "No movie was found.<br><br><br><br><br>";
-            } else {
-                //display movies in a grid; six movies per row
-                foreach ($movies as $movie) {
-                    $id = $movie->getId();
-                    $title = $movie->getTitle();
-                    $rating = $movie->getRating();
-                    $release_date = new \DateTime($movie->getRelease_date());
-                    $image = $movie->getImage();
-                    if (strpos($image, "http://") === false AND strpos($image, "https://") === false) {
-                        $image = BASE_URL . "/" . MOVIE_IMG . $image;
-                    }
-
-                    echo "<div class='item'><p><a href='", BASE_URL, "/movie/detail/$id'><img src='" . $image .
-                        "'></a><span>$title<br>Rated $rating<br>" . $release_date->format('m-d-Y') . "</span></p></div>";
-
-                }
-            }
-            ?>
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title> <?php echo $page_title ?> </title>
+            <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+            <link rel='shortcut icon' href='<?= BASE_URL ?>/www/img/favicon.ico' type='image/x-icon' />
+            <link type='text/css' rel='stylesheet' href='<?= BASE_URL ?>/www/css/app_style.css' />
+            <script>
+                //create the JavaScript variable for the base url
+                var base_url = "<?= BASE_URL ?>";
+            </script>
+        </head>
+        <body>
+        <div id="top"></div>
+        <div id='wrapper'>
+        <div id="banner">
+            <a href="<?= BASE_URL ?>/index.php" style="text-decoration: none" title="Rare Relics">
+                <div id="left">
+                    <img src='<?= BASE_URL ?>/www/img/logo.png' style="width: 180px; border: none" />
+                    <span style='color: #000; font-size: 36pt; font-weight: bold; vertical-align: top'>
+                                    Vintage Store
+                                </span>
+                    <div style='color: #000; font-size: 14pt; font-weight: bold'>An interactive application designed with MVC pattern</div>
+                </div>
+            </a>
+            <div id="right">
+                <img src="<?= BASE_URL ?>/www/img/kungfupanda.png" style="width: 400px; border: none" />
+            </div>
         </div>
-
         <?php
-        //display page footer
-        parent::displayFooter();
-    } //end of display method
+    }//end of displayHeader function
+
+    //this method displays the page footer
+    public static function displayFooter() {
+        ?>
+        <br><br><br>
+        <div id="push"></div>
+        </div>
+        <div id="footer"><br>&copy 2023 Rare Relics. All Rights Reserved.</div>
+        <script type="text/javascript" src="<?= BASE_URL ?>/www/js/ajax_autosuggestion.js"></script>
+        </body>
+        </html>
+        <?php
+    } //end of displayFooter function
 }
