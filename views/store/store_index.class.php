@@ -1,12 +1,12 @@
 <?php
+
 /**
- * Author: Fernando Luna
- * Date: 4/5/2023
- * File: index_view.class.php
+ * Author: Bobby Ezenwelu
+ * Date: 4/6/23
+ * File: store_index.class.php
  * Description:
  */
-
-class IndexView {
+class StoreView {
 
     //this method displays the page header
     static public function displayHeader($page_title) {

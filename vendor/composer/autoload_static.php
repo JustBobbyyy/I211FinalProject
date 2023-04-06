@@ -7,13 +7,23 @@ namespace Composer\Autoload;
 class ComposerStaticInitf2249f822795f8322dc252cb5d7f79bd
 {
     public static $classMap = array (
+        'ComposerAutoloaderInitf2249f822795f8322dc252cb5d7f79bd' => __DIR__ . '/..' . '/composer/autoload_real.php',
+        'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
+        'Composer\\Autoload\\ComposerStaticInitf2249f822795f8322dc252cb5d7f79bd' => __DIR__ . '/..' . '/composer/autoload_static.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'DataMissingException' => __DIR__ . '/../..' . '/exceptions/data_missing_exception.class.php',
         'Database' => __DIR__ . '/../..' . '/application/database.class.php',
+        'DatabaseConnectionException' => __DIR__ . '/../..' . '/exceptions/database_connection_exception.class.php',
+        'DatabaseExecutionException' => __DIR__ . '/../..' . '/exceptions/database_execution_exception.class.php',
         'Dispatcher' => __DIR__ . '/../..' . '/application/dispatcher.class.php',
-        'MovieIndex' => __DIR__ . '/../..' . '/views/store/index/store_index.class.php',
+        'HomeController' => __DIR__ . '/../..' . '/controllers/home_controller.class.php',
+        'HomeIndex' => __DIR__ . '/../..' . '/views/home/home_index.class.php',
+        'IndexView' => __DIR__ . '/../..' . '/views/index_view.class.php',
+        'InvalidDateException' => __DIR__ . '/../..' . '/exceptions/invalid_date_exception.class.php',
         'Store' => __DIR__ . '/../..' . '/models/store.class.php',
+        'StoreController' => __DIR__ . '/../..' . '/controllers/store_controller.class.php',
         'StoreModel' => __DIR__ . '/../..' . '/models/store_model.class.php',
-        'WelcomeIndex' => __DIR__ . '/../..' . '/views/home/home_index.class.php',
+        'StoreView' => __DIR__ . '/../..' . '/views/store/store_index.class.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

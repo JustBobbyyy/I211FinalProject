@@ -2,15 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91a7a795-7f4d-4a84-9867-655eec4f11ad" name="Changes" comment="store model class update">
-      <change afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/composer/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/error.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/index_view.class.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/store/store_index.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/database.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/database.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/home_controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/home_controller.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/store_controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/store_controller.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/store_model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/store_model.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/autoload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/home/home_index.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/home/home_index.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/store/index/store_index.class.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +65,7 @@
       <updated>1680739486747</updated>
       <workItem from="1680739488488" duration="1283000" />
       <workItem from="1680789346101" duration="12000" />
-      <workItem from="1680789454888" duration="10770000" />
+      <workItem from="1680789454888" duration="13283000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1680739912064</created>
@@ -109,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680799776317</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="store model class update">
+      <created>1680803681095</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1680803681095</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

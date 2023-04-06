@@ -26,6 +26,11 @@ class StoreModel {
         foreach ($_POST as $key => $value) {
             $_POST[$key] = $this->dbConnection->real_escape_string($value);
         }
+        
+        foreach($_GET as $key => $value){
+            $_GET[$key] = $this->dbConnection->real_escape_string($value);
+            
+        }
 
         //initialize product prices
         if (!isset($_SESSION['store_prices'])) {

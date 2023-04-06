@@ -5,3 +5,18 @@
  * File: store_controller.class.php
  * Description:
  */
+class StoreController{
+    private $store_model;
+    
+    public function __construct()
+    {
+        $this->store_model = StoreModel::getStoreModel();
+    }
+    
+    public function index(){
+        $products = $this->store_model->list_products();
+        $view = new IndexView(); // change to storeIndex when you have a chance
+        $view->display($products);
+    }
+
+}
