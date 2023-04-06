@@ -1,6 +1,6 @@
 <?php
 /**
- * Author: Bobby Ezenwelu
+ * Author: Fernando Luna
  * Date: 4/6/23
  * File: error.php
  * Description:

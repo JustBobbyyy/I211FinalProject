@@ -58,7 +58,7 @@ class StoreModel {
          */
 
         $sql = "SELECT * FROM " . $this->tblProducts . "," . $this->tblProducts_Category .
-            " WHERE " . $this->tblProducts . ".prices=" . $this->tblProducts_Category . ".prices";
+            " WHERE " . $this->tblProducts . ".product_cat=" . $this->tblProducts_Category . ".id";
 
         try {
 
@@ -82,10 +82,10 @@ class StoreModel {
 
             //loop through all rows in the returned recordsets
             while ($obj = $query->fetch_object()) {
-                $products = new Movie(stripslashes($obj->product_size), stripslashes($obj->color), stripslashes($obj->brand), stripslashes($obj->product_category), stripslashes($obj->price), stripslashes($obj->image));
+                $products = new Store(stripslashes($obj->product_size), stripslashes($obj->color), stripslashes($obj->brand), stripslashes($obj->category), stripslashes($obj->price), stripslashes($obj->image));
 
                 //set the id for the store
-                $products->setId($obj->product_id);
+                $products->setProduct_ID($obj->product_id);
 
                 //add the store into the array
                 $products[] = $products;
