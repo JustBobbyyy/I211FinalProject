@@ -80,7 +80,7 @@ class StoreModel {
                 $products = new Movie(stripslashes($obj->product_size), stripslashes($obj->color), stripslashes($obj->brand), stripslashes($obj->product_category), stripslashes($obj->price), stripslashes($obj->image));
 
                 //set the id for the store
-                $products->setId($obj->id);
+                $products->setId($obj->product_id);
 
                 //add the store into the array
                 $products[] = $products;
@@ -91,6 +91,45 @@ class StoreModel {
             $view->display($e->getMessage());
         } catch (Exception $e) {
             $view = new StoreError();
+            $view->display($e->getMessage());
+        }
+    }
+
+    public function view_products($product_id)
+    {
+        //the select ssql statement
+        $sql = "SELECT * FROM " . $this->tblMovie . "," . $this->tblMovieRating .
+            " WHERE " . $this->tblMovie . ".rating=" . $this->tblMovieRating . ".rating_id" .
+            " AND " . $this->tblMovie . ".id='$id'";
+
+        try {
+
+
+            //execute the query
+            $query = $this->dbConnection->query($sql);
+
+            if (!$query)
+                throw new DatabaseExecutionException(
+                    "Error encountered when executing the SQL statement.");
+
+            if ($query && $query->num_rows > 0) {
+                $obj = $query->fetch_object();
+
+                //create a movie object
+                $movie = new Movie(stripslashes($obj->title), stripslashes($obj->rating), stripslashes($obj->release_date), stripslashes($obj->director), stripslashes($obj->image), stripslashes($obj->description));
+
+                //set the id for the movie
+                $movie->setId($obj->product_id);
+
+                return $movie;
+            }
+
+            return false;
+        } catch (DatabaseExecutionException $e) {
+            $view = new MovieError();
+            $view->display($e->getMessage());
+        } catch (Exception $e) {
+            $view = new MovieError();
             $view->display($e->getMessage());
         }
     }
