@@ -33,7 +33,7 @@ class StoreView extends IndexView {
                         $image = BASE_URL . "/" . $image;
                     }
 
-                    echo "<div class='item'><p><a href='#'><img src='" . $image .
+                    echo "<div class='item' ><p><a href='#'><img src='" . $image .
                         "'></a><span>$brand<br>Color $color<br>" . $product_size. "<br> $" . $price . "<br>". $product_cat .  "</span></p></div>";
 
                 }

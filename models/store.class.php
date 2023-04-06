@@ -17,7 +17,7 @@ class Store
         $this->product_size = $product_size;
         $this->color = $color;
         $this->brand = $brand;
-        $this->product_cat = $product_category;
+        $this->product_category = $product_category;
         $this->price = $price;
         $this->image = $image;
     }
