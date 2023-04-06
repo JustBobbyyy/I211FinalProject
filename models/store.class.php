@@ -9,15 +9,15 @@
 class Store
 {
     //private data members
-    private $product_id, $product_size, $color, $brand, $product_cat, $price, $image;
+    private $product_id, $product_size, $color, $brand, $product_category, $price, $image;
 
     //the constructor
-    public function __construct($product_size, $color, $brand, $product_cat, $price, $image)
+    public function __construct($product_size, $color, $brand, $product_category, $price, $image)
     {
         $this->product_size = $product_size;
         $this->color = $color;
         $this->brand = $brand;
-        $this->product_cat = $product_cat;
+        $this->product_cat = $product_category;
         $this->price = $price;
         $this->image = $image;
     }
@@ -43,8 +43,8 @@ class Store
     }
 
     //get the product category
-    public function getProduct_cat() {
-        return $this->product_cat;
+    public function getProduct_category() {
+        return $this->product_category;
     }
 
     //get the product price
