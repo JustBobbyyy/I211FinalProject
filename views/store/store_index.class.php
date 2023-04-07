@@ -34,7 +34,7 @@ class StoreView extends IndexView {
                     }
 
                     echo "<div class='item' ><p><a href='#'><img src='" . $image .
-                        "'></a><span>$brand<br>Color $color<br>" . $product_size. "<br> $" . $price . "<br>". $product_cat .  "</span></p></div>";
+                        "'style='max-height: 350px' ></a>Brand: <span> $brand<br>Color: $color<br>" . $product_size. "<br>Price: $" . $price . "<br>Category: ". $product_cat .  "</span></p></div>";
 
                 }
             }

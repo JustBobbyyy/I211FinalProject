@@ -6,6 +6,7 @@
  * Description:
  */
 
+//created a class that will display content on the homepage
 class HomeController {
     public function index(){
         $view = new HomeIndex();

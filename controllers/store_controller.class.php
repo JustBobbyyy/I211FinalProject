@@ -6,8 +6,10 @@
  * Description:
  */
 class StoreController{
+
     private $store_model;
-    
+
+    //default constructor
     public function __construct()
     {
         $this->store_model = StoreModel::getStoreModel();
